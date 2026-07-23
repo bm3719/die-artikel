@@ -37,10 +37,10 @@
   (if (valid-file? dict)
     ;; Main interaction loop.
     (let [data (read-file dict)]
+      (println "Geben Sie den richtigen Artikel ein (oder \"q\" zum Beenden)")
       (loop []
         (let [word-article (next-word-article data)]
-          (println "Geben Sie den richtigen Artikel ein (oder \"q\" zum Beenden)")
-          (println "___" (:word word-article))
+          (println "» ___" (:word word-article))
           (print "> ")
           (flush)
           (let [ans (s/lower-case (read-line))]
