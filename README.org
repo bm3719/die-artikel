@@ -1,27 +1,30 @@
 * die-artikel
 A Clojure CLI application intended for use as a flashcard-style memory tool for
-quizzing myself on German article gender (die/der/das).
+quizzing myself on German article gender (der/die/das).
 
-Current form is to add to the data file for this as I accrue nouns.  Only
-including vocab used in textbooks being read, which currently is just
-/Jannach's German for Reading Knowledge, 6th Ed./.  Doing the exercises within
-these textbooks requires the internalization of the vocabulary being built.
-The direct translation of signifiers is the easy part, whereas the noun gender
-is effectively a huge functional digraph composed of (usually unintuitive)
-metadata that one can't opt out of if learning German.
+The intent here is to build gendered article knowledge based on linear accrual
+of nouns used in textbooks being read, which currently is just /Jannach's
+German for Reading Knowledge, 6th Ed./ Doing the exercises within most
+textbooks requires the internalization of the vocabulary being built in an
+on-going process.  The direct translation of signifiers is the easy part,
+whereas the noun gender is effectively a huge functional digraph composed of
+(usually unintuitive) metadata that one can't opt out of if learning German.
 
 There are, of course, rules for how these are assigned.  So, might abandon use
-of this project if I can successfully internalize all of those in a way that's
+of this project if those can be successfully internalized in a way that's
 effective.
 
-This is something that already exists in many accessible web forms, but I'd
-rather do the same from a terminal or REPL, as well as customize the dataset.
+This is something that already exists in many accessible webapp forms, but I'd
+rather do the same from a terminal or REPL, as well as customize the dataset to
+have it grow with me as I read along.
+
+This is a simple and straight-forward implementation, quickly written so I can
+use it immediately.
 ** Usage
 Either run this as-is, or replace the lexicon in =resources/data.csv=, which is
-comma-delimited in =article,noun= form, one line per entry.
-** Some ideas for later
-- When done reading language textbooks, might slurp in a large dictionary for
-  vocab expansion.
-- This is a simple and straight-forward implementation, quickly written so I
-  can use it immediately.  Could refactor to be more interesting from an
-  engineering/architecture perspective.
+comma-delimited in =article,noun= form.
+** Ideas for later
+- When done reading language textbooks, might slurp in a large dictionary.
+- Could have multiple dictionaries for different books.
+- Could also add translation of the noun presented, if I want to use this for
+  general vocab expansion.
