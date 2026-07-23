@@ -40,7 +40,7 @@
         (let [word-article (next-word-article data)]
           (println "Geben Sie den richtigen Artikel ein (oder \"q\" zum Beenden)")
           (println "___ " (:word word-article))
-          (println "> ")
+          (print "> ")
           (flush)
           (let [ans (read-line)]
             (if (= ans "q")
