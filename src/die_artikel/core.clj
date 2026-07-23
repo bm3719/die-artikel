@@ -1,6 +1,7 @@
 (ns die-artikel.core
   (:require [clojure.data.csv :as csv]
-            [clojure.java.io :as io]))
+            [clojure.java.io :as io]
+            [clojure.string :as s]))
 
 (def dict "data.csv")
 
@@ -39,10 +40,10 @@
       (loop []
         (let [word-article (next-word-article data)]
           (println "Geben Sie den richtigen Artikel ein (oder \"q\" zum Beenden)")
-          (println "___ " (:word word-article))
+          (println "___" (:word word-article))
           (print "> ")
           (flush)
-          (let [ans (read-line)]
+          (let [ans (s/lower-case (read-line))]
             (if (= ans "q")
               (println "Auf Wiedersehen.")
               (do
