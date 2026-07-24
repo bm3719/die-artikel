@@ -48,7 +48,7 @@
               (println "Auf Wiedersehen.")
               (do
                 (if (= (:article word-article) ans)
-                  (println "richtig!")
-                  (println "falsch!"))
+                  (println "Richtig!")
+                  (println (str "Falsch!  Die Antwort war \"" (:article word-article) "\"!")))
                 (recur)))))))
     (println "Dictionary file format invalid.")))
