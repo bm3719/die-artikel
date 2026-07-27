@@ -5,6 +5,12 @@
 
 (def dict "data.csv")
 
+(defn csv->seq [f]
+  (if-let [r (io/resource f)]
+    (with-open [reader (io/reader r)]
+      (doall (csv/read-csv reader)))
+    (throw (ex-info "Dictionary file not found" {:file f}))))
+
 (defn csv-data->maps [csv-data]
   (map zipmap
        (->> [:article :word]
@@ -12,22 +18,16 @@
        (rest csv-data)))
 
 (defn read-file [f]
-  (csv-data->maps
-   (with-open [reader (io/reader (io/resource f))]
-     (doall (csv/read-csv reader)))))
+  (csv-data->maps (csv->seq f)))
 
 (defn valid-file?
   "Check an input file to ensure that it has a consistent number of fields.  If
   false, there exists one or more rows that have too few or too many fields." [f]
-  (if-let [r (io/resource f)]
-    (with-open [reader (io/reader r)]
-      (->> (csv/read-csv reader)
-           doall
-           (map count)
-           distinct
-           first
-           (= 2)))
-    (throw (ex-info "Dictionary file not found" {:file f}))))
+  (->> (csv->seq f)
+       doall
+       (map count)
+       distinct
+       (every? #(= 2 %))))
 
 (defn next-word-article [dict]
   (nth dict (rand-int (count dict))))

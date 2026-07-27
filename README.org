@@ -28,3 +28,4 @@ comma-delimited in =article,noun= form.
 - Could have multiple dictionaries for different books.
 - Could also add translation of the noun presented, if I want to use this for
   general vocab expansion.
+- Track correct/incorrect answers and give a score upon exit.
