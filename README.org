@@ -1,4 +1,7 @@
 * die-artikel
+NOTE: Deprecated this project in lieu of the more full-coverage project,
+[[https://github.com/bm3719/das-vokabular][das-vokabular]].
+
 A Clojure CLI application intended for use as a flashcard-style memory tool for
 quizzing myself on German article gender (der/die/das).
 
